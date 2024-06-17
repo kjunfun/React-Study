@@ -1,3 +1,6 @@
+//JSX style 적용 방식
+import "./Main.css";
+
 // JSX 주의 사항
 // 1.중괄호 내부에는 JS 표현식만 넣을 수 있다.
 ///JS 표현식(Expression): 표현식의 결과는 항상 '값'이 됨. ex) '42'(리터럴 값), 'x'(변수), 'a+b'(연산), 'func()'(함수 호출), 'isTrue? 'y' : 'n'(삼항 연산자)
@@ -7,23 +10,24 @@
 // 3. 모든 태그는 닫혀있어야 한다.
 // 4. 최상위 태그는 반드시 하나여야만 한다.
 const Main = () => {
-  const number = 7;
-  const obj = { a: 6 };
+  const user = {
+    name: "juno",
+    isLogin: true,
+  };
 
   return (
-    <main>
-      <img src="" alt="" />
-      <h1>main</h1>
-      <h2>{number % 2 === 0 ? "짝" : "홀"}</h2>
-      {10}
-      {number}
-      {[1, 2, 3]}
-      {true}
-      {null}
-      {undefined}
-      {obj.a}
-    </main>
+    <>
+      {user.isLogin ? (
+        <div className="logout">로그아웃</div> //JSX style 적용(camelCase)
+      ) : (
+        <div>로그인</div>
+      )}
+    </>
   );
+  // if (user.isLogin) {
+  //   return <div>로그아웃</div>;
+  // } else {
+  //   return <div>로그인</div>;
+  // }
 };
-
 export default Main;
